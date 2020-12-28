@@ -1,7 +1,7 @@
-#import "RnHash.h"
+#import "RnBytes.h"
 
 
-@implementation RnHash
+@implementation RnBytes
 
 RCT_EXPORT_MODULE()
 

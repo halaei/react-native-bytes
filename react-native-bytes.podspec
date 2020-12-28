@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.version      = package["version"]
   s.summary      = package["description"]
   s.description  = <<-DESC
-                  react-native-hash
+                  react-native-bytes
                    DESC
   s.homepage     = "https://github.com/Drazail/react-native-bytes"
   s.license      = "MIT"
