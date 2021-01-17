@@ -3,7 +3,7 @@
 
 @implementation RnBytes
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNBytes)
 
 RCT_EXPORT_METHOD(getFileLength:(NSString *)path
                   resolver:(RCTPromiseResolveBlock)resolve
