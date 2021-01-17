@@ -9,31 +9,32 @@ RCT_EXPORT_METHOD(getFileLength:(NSString *)path
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-    @try {
-        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:URL error:&attributesError];
+    NSError *error = nil;
+    NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:&error];
+    if (fileAttributes != nil) {
         NSNumber *fileSize = [fileAttributes objectForKey:NSFileSize];
-        resolve(fileSize);
-    } @catch (NSException *exception) {
-        reject(exception)
+        if (fileSize != nil) {
+            resolve(fileSize);
+            return;
+        }
     }
+    reject(@"not_found", error ? [error description] : @"File not found", error);
 }
 
 RCT_EXPORT_METHOD(readFromAndWriteTo:(NSString *)sourcePath
-                  targetPath(NSString *)targetPath
-                  overwrite(BOOL)overwrite
-                  append(BOOL)append
-                  from(NSNumber *)from
-                  to(NSNumber *)to
+                  targetPath:(NSString *)targetPath
+                  overwrite:(BOOL)overwrite
+                  append:(BOOL)append
+                  from:(NSNumber *)from
+                  to:(NSNumber *)to
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
     if (!overwrite || append) {
-        reject(@"append not supported");
+        reject(@"TODO", @"append not supported", nil);
         return;
     }
-    reject(@"todo");
+    reject(@"todo", @"todo", nil);
 }
-
-
 
 @end
