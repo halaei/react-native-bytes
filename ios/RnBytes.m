@@ -25,8 +25,8 @@ RCT_EXPORT_METHOD(readFromAndWriteTo:(NSString *)sourcePath
                   targetPath:(NSString *)targetPath
                   overwrite:(BOOL)overwrite
                   append:(BOOL)append
-                  from:(NSNumber *)from
-                  to:(NSNumber *)to
+                  from:(nonnull NSNumber *)from
+                  to:(nonnull NSNumber *)to
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
